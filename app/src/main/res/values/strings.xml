@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">De las preguntas y las cosas</string>
+
+    <string name="tTitulo">De las preguntas y las cosas</string>
+
+    <string name="bJugar">Jugar</string>
+    <string name="bRanking">Clasificación</string>
+    <string name="bOpciones">Opciones</string>
+    <string name="bPerfil">Perfil</string>
+
+    <string name="sDificultad">Dificultad</string>
+    <string name="tDificultadFacil">Fácil</string>
+    <string name="tDificultadNormal">Normal</string>
+    <string name="tDificultadDificil">Difícil</string>
+
+    <string name="sCantidad">Número de preguntas</string>
+    <string name="tCantidad5">5</string>
+    <string name="tCantidad10">10</string>
+    <string name="tCantidad15">15</string>
+
+    <string name="tPerfiles">Perfiles</string>
+
+</resources>

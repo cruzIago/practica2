@@ -36,7 +36,7 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView[] ultima = new TextView[MAX_PERFILES], maxPuntos = new TextView[MAX_PERFILES], partidas = new TextView[MAX_PERFILES], nombre = new TextView[MAX_PERFILES];
     private Button[] bNuevo = new Button[MAX_PERFILES], bEditar = new Button[MAX_PERFILES], bBorrar = new Button[MAX_PERFILES];
     private ImageView[] iFoto = new ImageView[MAX_PERFILES];
-    private CardView[] carta_perfil=new CardView[MAX_PERFILES];
+    private CardView[] carta_perfil = new CardView[MAX_PERFILES];
     private String alias;
     private Uri foto_uri_1;
 
@@ -63,7 +63,7 @@ public class PerfilActivity extends AppCompatActivity {
         bEditar[0] = findViewById(R.id.bEditar_1);
         bBorrar[0] = findViewById(R.id.bBorrar_1);
         iFoto[0] = findViewById(R.id.iFoto_1);
-        carta_perfil[0]=findViewById(R.id.carta_perfil_1);
+        carta_perfil[0] = findViewById(R.id.carta_perfil_1);
 
         ultima[1] = findViewById(R.id.tUltima_2);
         maxPuntos[1] = findViewById(R.id.tPuntos_2);
@@ -73,7 +73,7 @@ public class PerfilActivity extends AppCompatActivity {
         bEditar[1] = findViewById(R.id.bEditar_2);
         bBorrar[1] = findViewById(R.id.bBorrar_2);
         iFoto[1] = findViewById(R.id.iFoto_2);
-        carta_perfil[1]=findViewById(R.id.carta_perfil_2);
+        carta_perfil[1] = findViewById(R.id.carta_perfil_2);
 
         ultima[2] = findViewById(R.id.tUltima_3);
         maxPuntos[2] = findViewById(R.id.tPuntos_3);
@@ -83,7 +83,7 @@ public class PerfilActivity extends AppCompatActivity {
         bEditar[2] = findViewById(R.id.bEditar_3);
         bBorrar[2] = findViewById(R.id.bBorrar_3);
         iFoto[2] = findViewById(R.id.iFoto_3);
-        carta_perfil[2]=findViewById(R.id.carta_perfil_2);
+        carta_perfil[2] = findViewById(R.id.carta_perfil_2);
 
         for (int i = 0; i < MAX_PERFILES; i++) {
             bNuevo[i].setVisibility(View.VISIBLE);
@@ -154,22 +154,27 @@ public class PerfilActivity extends AppCompatActivity {
         });
         dialogo.show();
     }
+
     private int iActivar;
-    private void setActivar(){
-        for(iActivar=0;iActivar<MAX_PERFILES;iActivar++){
+
+    private void setActivar() {
+        for (iActivar = 0; iActivar < MAX_PERFILES; iActivar++) {
             iFoto[iActivar].setOnClickListener(new View.OnClickListener() {
-                private int idActual=iActivar;
+                private int idActual = iActivar;
+
                 @Override
                 public void onClick(View v) {
-                    SharedPreferences settings = getSharedPreferences(OpcionesActivity.PREFS_NAME,0);
-                    SharedPreferences.Editor editor=settings.edit();
-                    editor.putInt("idActual",perfiles.get(idActual).id_perfil);
+                    SharedPreferences settings = getSharedPreferences(OpcionesActivity.PREFS_NAME, 0);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putInt("idActual", perfiles.get(idActual).id_perfil);
+                    editor.putInt("partidasTotalesid",perfiles.get(idActual).partidasJugadas);
                     editor.commit();
                     recargarPerfiles();
                 }
             });
         }
     }
+
     private int iActualizado;
 
     private void setActualizarPerfil() {
@@ -196,6 +201,12 @@ public class PerfilActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
+                    SharedPreferences settings = getSharedPreferences(OpcionesActivity.PREFS_NAME,0);
+                    SharedPreferences.Editor editor=settings.edit();
+                    if(settings.getInt("idActual",-1)==aBorrar){
+                        editor.putInt("idActual",-1);
+                        editor.commit();
+                    }
                     dialogoBorrado(aBorrar);
                 }
             });
@@ -219,8 +230,8 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void recargarPerfiles() {
-        SharedPreferences settings = getSharedPreferences(OpcionesActivity.PREFS_NAME,0);
-        int idActual=settings.getInt("idActual",0);
+        SharedPreferences settings = getSharedPreferences(OpcionesActivity.PREFS_NAME, 0);
+        int idActual = settings.getInt("idActual", 0);
         for (int i = 0; i < MAX_PERFILES; i++) {
             if (perfiles.size() > i) {
                 nombre[i].setText(perfiles.get(i).nombre);
@@ -236,7 +247,7 @@ public class PerfilActivity extends AppCompatActivity {
                 bNuevo[i].setVisibility(View.INVISIBLE);
                 bEditar[i].setVisibility(View.VISIBLE);
                 bBorrar[i].setVisibility(View.VISIBLE);
-                carta_perfil[i].setCardBackgroundColor(idActual==perfiles.get(i).id_perfil?getResources().getColor(R.color.backCartaActivada):getResources().getColor(R.color.backCartaDesactivada));
+                carta_perfil[i].setCardBackgroundColor(idActual == perfiles.get(i).id_perfil ? getResources().getColor(R.color.backCartaActivada) : getResources().getColor(R.color.backCartaDesactivada));
             } else {
                 nombre[i].setVisibility(View.INVISIBLE);
                 maxPuntos[i].setVisibility(View.INVISIBLE);
@@ -300,7 +311,7 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && isNuevo) {
             isNuevo = false;
-            Perfil p = new Perfil(alias, 0, 0, Calendar.getInstance().getTime(), foto_uri_1.toString());
+            Perfil p = new Perfil(alias, 0, 0, Calendar.getInstance().getTime().toString(), foto_uri_1.toString());
             rC.insertarPerfil(p);
             new CargaAsincronaPerfiles().execute();
         } else if (resultCode == RESULT_OK && isActualiza) {
@@ -355,6 +366,7 @@ public class PerfilActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             DeLasCosasDatabase.getDatabase(getApplicationContext()).DAOpreguntasYRespuestas().borraPerfil(perfil);
+
             return null;
         }
 

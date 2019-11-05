@@ -1,5 +1,6 @@
 package com.example.practica2;
 
+import java.util.Date;
 import java.util.List;
 
 import androidx.room.Dao;
@@ -27,13 +28,19 @@ public interface DAOpreguntasYRespuestas {
     void actualizaPerfilImagen(String foto, int id_perfil);
 
     @Query("UPDATE Perfil SET maxPuntuacion=:maxPuntuacion WHERE id_perfil=:id_perfil")
-    void actualizaMaximaPuntuacion(int id_perfil,double maxPuntuacion);
+    void actualizaMaximaPuntuacion(int id_perfil, double maxPuntuacion);
+
+    @Query("UPDATE Perfil SET partidasJugadas=:partidasJugadas WHERE id_perfil=:id_perfil")
+    void actualizaPartidasJugadasd(int id_perfil, int partidasJugadas);
+
+    @Query("UPDATE Perfil SET ultimaPartida=:ultimaPartida WHERE id_perfil=:id_perfil")
+    void actualizaUltimaPartida(int id_perfil, String ultimaPartida);
 
     @Query("SELECT * from Perfil ORDER BY maxPuntuacion DESC")
     List<Perfil> cargaRanking();
 
     @Query("SELECT * FROM Pregunta WHERE dificultad=:dificultad1 or dificultad=:dificultad2")
-    List<Pregunta> cargaPreguntas(int dificultad1,int dificultad2);
+    List<Pregunta> cargaPreguntas(int dificultad1, int dificultad2);
 
     @Query("SELECT * FROM Respuesta WHERE id_pregunta=:idPregunta")
     Respuesta[] cargarRespuestas(int idPregunta);

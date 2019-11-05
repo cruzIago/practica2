@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class FinActivity extends AppCompatActivity {
 
@@ -50,8 +53,8 @@ public class FinActivity extends AppCompatActivity {
         puntuacionFinal = puntuacionFinal < 0 ? 0 : puntuacionFinal;
         tPuntos.setText("" + puntuacionFinal);
         int idPerfil = settings.getInt("idActual", 0);
-
-        new ActualizaMaximaPuntuacion(idPerfil,puntuacionFinal).execute();
+        int partidasJugadas=settings.getInt("partidasTotalesid",0);
+        new ActualizaMaximaPuntuacion(idPerfil,puntuacionFinal,partidasJugadas).execute();
 
         bMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,16 +70,19 @@ public class FinActivity extends AppCompatActivity {
     class ActualizaMaximaPuntuacion extends AsyncTask<Void, Void, Void> {
         private int idPerfil;
         private double puntuacionFinal;
+        private int nPartidas;
 
-        ActualizaMaximaPuntuacion(int idPerfil,double puntuacionFinal){
+        ActualizaMaximaPuntuacion(int idPerfil,double puntuacionFinal,int partidasJugadas){
             this.idPerfil=idPerfil;
             this.puntuacionFinal=puntuacionFinal;
+            this.nPartidas=partidasJugadas;
         }
         @Override
         protected Void doInBackground(Void... voids) {
 
-            System.out.println(idPerfil);
             DeLasCosasDatabase.getDatabase(getApplicationContext()).DAOpreguntasYRespuestas().actualizaMaximaPuntuacion(idPerfil, puntuacionFinal);
+            DeLasCosasDatabase.getDatabase(getApplicationContext()).DAOpreguntasYRespuestas().actualizaPartidasJugadasd(idPerfil,nPartidas);
+            DeLasCosasDatabase.getDatabase(getApplicationContext()).DAOpreguntasYRespuestas().actualizaUltimaPartida(idPerfil, Calendar.getInstance().getTime().toString());
             return null;
         }
 

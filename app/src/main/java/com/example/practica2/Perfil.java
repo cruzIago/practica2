@@ -16,11 +16,11 @@ public class Perfil {
     public String nombre;
     public double maxPuntuacion;
     public int partidasJugadas;
-    public Date ultimaPartida;
+    public String ultimaPartida;
 
     public String foto;
 
-    public Perfil(String nombre, double maxPuntuacion, int partidasJugadas, Date ultimaPartida, String foto) {
+    public Perfil(String nombre, double maxPuntuacion, int partidasJugadas, String ultimaPartida, String foto) {
         this.nombre = nombre;
         this.maxPuntuacion = maxPuntuacion;
         this.partidasJugadas = partidasJugadas;

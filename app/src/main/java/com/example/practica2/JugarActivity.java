@@ -107,6 +107,7 @@ public class JugarActivity extends AppCompatActivity {
             intento.putExtra("puntuacion", puntuaciones);
             intento.putExtra("tiempo", (double) SystemClock.elapsedRealtime() - cTiempo.getBase());
             startActivity(intento);
+            finish();
         } else {
             //preguntas.remove(pregunta);
             setPreguntas();
@@ -259,7 +260,6 @@ public class JugarActivity extends AppCompatActivity {
         rb1.setText(respuestas[1].respuesta);
         rb2.setText(respuestas[2].respuesta);
         rb3.setText(respuestas[3].respuesta);
-        System.out.println(pregunta.id_p);
         if (pregunta.idMedia != -1) {
             if (getResources().getString(pregunta.idMedia).contains("i")) {
                 ivPreguntas.setImageResource(pregunta.idMedia);

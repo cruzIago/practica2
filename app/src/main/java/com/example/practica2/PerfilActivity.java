@@ -163,7 +163,7 @@ public class PerfilActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     SharedPreferences settings = getSharedPreferences(OpcionesActivity.PREFS_NAME,0);
                     SharedPreferences.Editor editor=settings.edit();
-                    editor.putInt("idActual",idActual);
+                    editor.putInt("idActual",perfiles.get(idActual).id_perfil);
                     editor.commit();
                     recargarPerfiles();
                 }
@@ -236,7 +236,7 @@ public class PerfilActivity extends AppCompatActivity {
                 bNuevo[i].setVisibility(View.INVISIBLE);
                 bEditar[i].setVisibility(View.VISIBLE);
                 bBorrar[i].setVisibility(View.VISIBLE);
-                carta_perfil[i].setCardBackgroundColor(idActual==i?getResources().getColor(R.color.backCartaActivada):getResources().getColor(R.color.backCartaDesactivada));
+                carta_perfil[i].setCardBackgroundColor(idActual==perfiles.get(i).id_perfil?getResources().getColor(R.color.backCartaActivada):getResources().getColor(R.color.backCartaDesactivada));
             } else {
                 nombre[i].setVisibility(View.INVISIBLE);
                 maxPuntos[i].setVisibility(View.INVISIBLE);

@@ -19,7 +19,7 @@ public class FinActivity extends AppCompatActivity {
     private final double MULT_HIGH = 1.5;
     private final double MULT_GOD = 2;
     private double puntuacionFinal;
-
+    private boolean itsDone=false;
     private TextView tPuntos;
     private Button bMenu;
 
@@ -51,13 +51,16 @@ public class FinActivity extends AppCompatActivity {
         tPuntos.setText("" + puntuacionFinal);
         int idPerfil = settings.getInt("idActual", 0);
 
-        new ActualizaMaximaPuntuacion(idPerfil,puntuacionFinal);
+        new ActualizaMaximaPuntuacion(idPerfil,puntuacionFinal).execute();
 
         bMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento = new Intent(v.getContext(), MainActivity.class);
-                startActivity(intento);
+                if(itsDone) {
+                    Intent intento = new Intent(v.getContext(), MainActivity.class);
+                    startActivity(intento);
+                    finish();
+                }
             }
         });
     }
@@ -71,6 +74,8 @@ public class FinActivity extends AppCompatActivity {
         }
         @Override
         protected Void doInBackground(Void... voids) {
+
+            System.out.println(idPerfil);
             DeLasCosasDatabase.getDatabase(getApplicationContext()).DAOpreguntasYRespuestas().actualizaMaximaPuntuacion(idPerfil, puntuacionFinal);
             return null;
         }
@@ -78,6 +83,7 @@ public class FinActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            itsDone=true;
         }
     }
 }

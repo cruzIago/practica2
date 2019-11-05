@@ -1,22 +1,17 @@
 package com.example.practica2;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     //Variables
     private Button bJugar, bOpciones, bRanking,bPerfil;
+    private repositorioCosas rC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +23,14 @@ public class MainActivity extends AppCompatActivity {
         bRanking = findViewById(R.id.bRanking);
         bPerfil=findViewById(R.id.bPerfil);
 
+        //Inicia la base de datos
+        rC=new repositorioCosas(getApplication());
+        rC.cargarPerfiles();
         bJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intento = new Intent(v.getContext(), OpcionesActivity.class);
-                startActivity(intento);*/
+                Intent intento = new Intent(v.getContext(), JugarActivity.class);
+                startActivity(intento);
             }
         });
 

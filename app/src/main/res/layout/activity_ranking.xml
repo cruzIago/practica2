@@ -6,4 +6,202 @@
     android:layout_height="match_parent"
     tools:context=".RankingActivity">
 
+    <TextView
+        android:id="@+id/tRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tRanking"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carta_ranking_1"
+        android:layout_width="355dp"
+        android:layout_height="145dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tRanking"
+        app:layout_constraintVertical_bias="0.07">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/rFoto_1"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tMPuntos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Máxima Puntuación"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_1"
+                app:layout_constraintTop_toBottomOf="@+id/rAlias_1"
+                app:layout_constraintVertical_bias="0.16000003" />
+
+            <TextView
+                android:id="@+id/rAlias_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alias"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.17000002" />
+
+            <TextView
+                android:id="@+id/rPuntos_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_1"
+                app:layout_constraintTop_toBottomOf="@+id/tMPuntos"
+                app:layout_constraintVertical_bias="0.25" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carta_ranking_2"
+        android:layout_width="355dp"
+        android:layout_height="145dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carta_ranking_1"
+        app:layout_constraintVertical_bias="0.07999998">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/rFoto_2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tMPuntos2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Máxima Puntuación"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_2"
+                app:layout_constraintTop_toBottomOf="@+id/rAlias_2"
+                app:layout_constraintVertical_bias="0.16000003" />
+
+            <TextView
+                android:id="@+id/rAlias_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alias"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.17000002" />
+
+            <TextView
+                android:id="@+id/rPuntos_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_2"
+                app:layout_constraintTop_toBottomOf="@+id/tMPuntos2"
+                app:layout_constraintVertical_bias="0.25" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carta_ranking_3"
+        android:layout_width="355dp"
+        android:layout_height="145dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carta_ranking_2"
+        app:layout_constraintVertical_bias="0.16000003">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/rFoto_3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tMPuntos3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Máxima Puntuación"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_3"
+                app:layout_constraintTop_toBottomOf="@+id/rAlias_3"
+                app:layout_constraintVertical_bias="0.16000003" />
+
+            <TextView
+                android:id="@+id/rAlias_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alias"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.17000002" />
+
+            <TextView
+                android:id="@+id/rPuntos_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rFoto_3"
+                app:layout_constraintTop_toBottomOf="@+id/tMPuntos3"
+                app:layout_constraintVertical_bias="0.25" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

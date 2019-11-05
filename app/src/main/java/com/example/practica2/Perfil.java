@@ -5,21 +5,22 @@ import java.util.Date;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 @Entity
+@TypeConverters(TimeConverter.class)
 public class Perfil {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_perfil;
+
     public String nombre;
-    public int maxPuntuacion;
+    public double maxPuntuacion;
     public int partidasJugadas;
     public Date ultimaPartida;
 
-    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-    public byte[] foto;
+    public String foto;
 
-    public Perfil(int id_perfil, String nombre, int maxPuntuacion, int partidasJugadas, Date ultimaPartida, byte[] foto) {
-        this.id_perfil = id_perfil;
+    public Perfil(String nombre, double maxPuntuacion, int partidasJugadas, Date ultimaPartida, String foto) {
         this.nombre = nombre;
         this.maxPuntuacion = maxPuntuacion;
         this.partidasJugadas = partidasJugadas;

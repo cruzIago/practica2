@@ -7,17 +7,29 @@
     <string name="bRanking">Clasificación</string>
     <string name="bOpciones">Opciones</string>
     <string name="bPerfil">Perfil</string>
-
+    <string name="bMenu">Menú</string>
+    <string name="bSonidos">Mantén para escuchar</string>
     <string name="sDificultad">Dificultad</string>
     <string name="tDificultadFacil">Fácil</string>
     <string name="tDificultadNormal">Normal</string>
     <string name="tDificultadDificil">Difícil</string>
-
+    <string name="tPuntuacion">Puntos</string>
+    <string name="tNPreguntas">x/x</string>
     <string name="sCantidad">Número de preguntas</string>
     <string name="tCantidad5">5</string>
     <string name="tCantidad10">10</string>
     <string name="tCantidad15">15</string>
 
+    <string name="tTiempo">Tiempo</string>
+
     <string name="tPerfiles">Perfiles</string>
+    <string name="bNuevo">Nuevo perfil</string>
+    <string name="bEditar">Editar</string>
+    <string name="bBorrar">Borrar</string>
+    <string name="pPuntos">Max.Puntos: </string>
+    <string name="pPartidas">Partidas: </string>
+    <string name="pUltima">Ultima partida: </string>
+
+    <string name="tRanking">Ranking</string>
 
 </resources>

@@ -32,6 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/audiowide"
                 android:text="@string/app_name"
                 android:textSize="20sp" />
 
@@ -40,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/audiowide"
                 android:text="@string/app_name"
                 android:textSize="20sp" />
 
@@ -48,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/audiowide"
                 android:text="@string/app_name"
                 android:textSize="20sp" />
 
@@ -56,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/audiowide"
                 android:text="@string/app_name"
                 android:textSize="20sp" />
 
@@ -139,9 +143,10 @@
         android:id="@+id/textoPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:fontFamily="@font/audiowide"
         android:text="@string/app_name"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,6 +157,7 @@
         android:id="@+id/tPuntuacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
         android:text="@string/tCantidad10"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -165,6 +171,7 @@
         android:id="@+id/tPuntuacionJugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
         android:text="@string/tPuntuacion"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -178,6 +185,7 @@
         android:id="@+id/tTiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
         android:text="@string/tTiempo"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,19 +199,22 @@
         android:id="@+id/cTiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toEndOf="@+id/tTiempo"
         app:layout_constraintTop_toBottomOf="@+id/textoPreguntas"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.975" />
 
     <Button
         android:id="@+id/bSonidos"
         android:layout_width="270dp"
         android:layout_height="220dp"
+        android:fontFamily="@font/audiowide"
         android:text="@string/bSonidos"
+        android:background="@drawable/button"
         android:textSize="25sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -216,6 +227,7 @@
         android:id="@+id/tNPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
         android:text="@string/tNPreguntas"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
